@@ -8,13 +8,14 @@
       $(function(){
         var element = $(".js-popper");
 
-        var popper = new com.jivatechnology.Popper();
-        popper.target(element);
-        popper.trigger("hover");
-        popper.placement("north");
+        var popper = new com.jivatechnology.Popper({
+          trigger:   "hover",
+          placement: "north",
+          target:    element
+        });
+
         popper.onOpen.add(function(p){
           console.info("Popover opened");
-
           // Add the content of our popover
           $(p.container()).html("Hello<br>There");
         });

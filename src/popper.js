@@ -44,7 +44,6 @@ if (!com.jivatechnology) { com.jivatechnology = {}; }
       var defaults = {
         onOpen:    [],
         onClose:   [],
-        trigger:   "hover",
         placement: "north",
         baseClass: "popper"
       };
@@ -173,9 +172,10 @@ if (!com.jivatechnology) { com.jivatechnology = {}; }
       this.open = function(){ state_open(); };
       this.close = function(){ state_close(); };
 
+      // Initialize options
       this.onOpen  = new CallbackList(options.onOpen,  {must_keep: true});
       this.onClose = new CallbackList(options.onClose, {must_keep: true});
-
+      if(options.trigger){ this.trigger(options.trigger) };
     };
 
   })();
