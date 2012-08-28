@@ -1,0 +1,78 @@
+/* Basic styles */
+.popper {
+  position: absolute;
+}
+
+.popper-arrow {
+  width:       0px;
+  height:      0px;
+  font-size:   0px;
+  line-height: 0px;
+  position:    absolute;
+}
+
+.popper-north .popper-container { margin-bottom: 5px; }
+.popper-south .popper-container { margin-top:    5px; }
+.popper-east  .popper-container { margin-left:   5px; }
+.popper-west  .popper-container { margin-right:  5px; }
+
+.popper-north .popper-arrow {
+  margin-left:      -5px;
+  border-left:      5px solid transparent;
+  border-right:     5px solid transparent;
+  border-top-width: 5px;
+  border-top-style: solid;
+
+  bottom: 0;
+  left: 50%;
+}
+
+.popper-south .popper-arrow {
+  margin-left:         -5px;
+  border-left:         5px solid transparent;
+  border-right:        5px solid transparent;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+
+  top:  0;
+  left: 50%;
+}
+
+.popper-east .popper-arrow {
+  margin-top:         -5px;
+  border-bottom:      5px solid transparent;
+  border-top:         5px solid transparent;
+  border-right-width: 5px;
+  border-right-style: solid;
+
+  top:  50%;
+  left: 0;
+}
+
+.popper-west .popper-arrow {
+  margin-top:        -5px;
+  border-bottom:     5px solid transparent;
+  border-top:        5px solid transparent;
+  border-left-width: 5px;
+  border-left-style: solid;
+
+  top: 50%;
+  right: 0;
+}
+
+/* Theming */
+
+.popper-container {
+  background-color: black;
+  color:            white;
+  padding:          0.5em;
+
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius:    0.5em;
+  border-radius:         0.5em;
+}
+
+.popper-north .popper-arrow { border-top-style-color:    black; }
+.popper-south .popper-arrow { border-bottom-style-color: black; }
+.popper-east .popper-arrow  { border-right-style-color:  black; }
+.popper-west .popper-arrow  { border-left-style-color:   black; }

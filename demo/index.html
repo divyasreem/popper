@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" media="screen" href="../src/popper.css"></link>
+    <script type="text/javascript" src="../vendor/jquery.js"></script>
+    <script type="text/javascript" src="../vendor/callback.js"></script>
+    <script type="text/javascript" src="../src/popper.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        var element = $(".js-popper");
+
+        var popper = new com.jivatechnology.Popper();
+        popper.target(element);
+        popper.trigger("hover");
+        popper.placement("north");
+        popper.onOpen.add(function(p){
+          console.info("Popover opened");
+
+          // Add the content of our popover
+          $(p.container()).html("Hello<br>There");
+        });
+
+        popper.onClose.add(function(p){
+          console.info("Popover closed");
+        });
+      });
+    </script>
+  </head>
+  <body>
+
+    <h1>Popper</h1>
+
+    <p>Here's a little <span class='js-popper'>demoooooooo</span> of Popper</p>
+
+  </body>
+</html>
