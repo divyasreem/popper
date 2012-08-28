@@ -45,7 +45,8 @@ if (!com.jivatechnology) { com.jivatechnology = {}; }
         onOpen:    [],
         onClose:   [],
         trigger:   "hover",
-        placement: "north"
+        placement: "north",
+        baseClass: "popper"
       };
 
       var options = merge_options(defaults,opts);
@@ -55,7 +56,11 @@ if (!com.jivatechnology) { com.jivatechnology = {}; }
 
       var createPopper = function(){
         if(!(popper instanceof HTMLElement)){
-          var markup = "<div class='popper popper-"+that.placement()+"'><div class='popper-arrow'></div><div class='popper-container'></div></div>";
+          var baseClass      = that.baseClass();
+          var classes        = baseClass + " " + baseClass +"-"+that.placement();
+          var arrowClass     = baseClass + "-arrow";
+          var containerClass = baseClass + "-container";
+          var markup = "<div class='"+classes+"'><div class='"+arrowClass+"'></div><div class='"+containerClass+"'></div></div>";
           $target().after(markup);
           popper = $target()[0].nextSibling;
         }
@@ -145,9 +150,10 @@ if (!com.jivatechnology) { com.jivatechnology = {}; }
       // Public methods
       this.target    = create_getter_setter(options,"target");
       this.placement = create_getter_setter(options,"placement");
+      this.baseClass = create_getter_setter(options,"baseClass");
 
       this.container = function(){
-        return $(popper).find(".popper-container")[0];
+        return $(popper).find("."+that.baseClass()+"-container")[0];
       };
 
       this.trigger = function(type){

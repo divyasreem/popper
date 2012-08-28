@@ -24,6 +24,7 @@ We can configure what we need from the constructor:
       target:    $(".js-popper"), // Element you want the popup on
       trigger:   "hover",         // When to automatically trigger the popper
       placement: "north",         // Where to place the popper
+      baseClass: "my-popper",     // Class name used to build all other classes
       onSuccess: function(p){ $(p.container).html('Hello!'); },
       onFailure: function(p){ console.info("Popper closed") },
     })
