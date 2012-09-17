@@ -25,8 +25,8 @@ We can configure what we need from the constructor:
       trigger:   "hover",         // When to automatically trigger the popper
       placement: "north",         // Where to place the popper
       baseClass: "my-popper",     // Class name used to build all other classes
-      onSuccess: function(p){ $(p.container).html('Hello!'); },
-      onFailure: function(p){ console.info("Popper closed") },
+      onOpen:    function(p){ $(p.container).html('Hello!'); },
+      onClose:   function(p){ console.info("Popper closed") },
     })
 
 It's possible to customise it once the object has been instantiated:
