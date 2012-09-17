@@ -1,4 +1,5 @@
 //= require jquery
+//= require callback
 
 if ("undefined" == typeof com) { var com = {}; }
 if (!com.jivatechnology) { com.jivatechnology = {}; }

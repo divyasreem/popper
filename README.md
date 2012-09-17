@@ -37,6 +37,14 @@ It's possible to customise it once the object has been instantiated:
     popper.placement("south");
     => "south"
 
+Requirements
+============
+
+Both included in the vendor folder:
+
+- [jQuery](http://jquery.com)
+- [Callback.js](https://github.com/theozaurus/callback-js)
+
 ======
 
 - Tests
