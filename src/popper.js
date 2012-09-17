@@ -68,25 +68,25 @@ if (!com.jivatechnology) { com.jivatechnology = {}; }
 
       var positionPoppers = {
         "north": function(){
-          var position = $target().offset();
+          var position = $target().position();
           position.top  -= popperHeight();
           position.left -= (popperWidth() - targetWidth()) / 2;
           return position;
         },
         "south": function(){
-          var position = $target().offset();
+          var position = $target().position();
           position.top  += targetHeight();
           position.left -= (popperWidth() - targetWidth()) / 2;
           return position;
         },
         "east": function(){
-          var position = $target().offset();
+          var position = $target().position();
           position.top  += (targetHeight() - popperHeight()) / 2;
           position.left += targetWidth();
           return position;
         },
         "west": function(){
-          var position = $target().offset();
+          var position = $target().position();
           position.top  += (targetHeight() - popperHeight()) / 2;
           position.left -= popperWidth();
           return position;
@@ -105,9 +105,13 @@ if (!com.jivatechnology) { com.jivatechnology = {}; }
           throw "Unrecognised placement " + that.placement();
         }
 
+        // Absolutely position it so we can accurately measure width and height
+        $popper().css("position","absolute").css("left",0).css("top",0);
+
+        // Now calculate correct position
         var position = positioner();
         position = positionRounded(position);
-        $popper().offset(position);
+        $popper().css("left",position.left).css("top",position.top);
       };
 
       var destroyPopper = function(){

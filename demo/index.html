@@ -1,6 +1,17 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" media="screen" href="../src/popper.css"></link>
+    <style type="text/css">
+      .absolutely {
+        position: absolute;
+        top: 200px;
+        left: 100px;
+      }
+
+      span {
+        color: green;
+      }
+    </style>
     <script type="text/javascript" src="../vendor/jquery.js"></script>
     <script type="text/javascript" src="../vendor/callback.js"></script>
     <script type="text/javascript" src="../src/popper.js"></script>
@@ -23,6 +34,19 @@
         popper.onClose.add(function(p){
           console.info("Popover closed");
         });
+
+        var absolutePopper = new com.jivatechnology.Popper({
+          trigger:   "hover",
+          placement: "north",
+          target:    $(".absolutely span")
+        });
+
+        absolutePopper.onOpen.add(function(p){
+          console.info("Popover opened");
+          // Add the content of our popover
+          $(p.container()).html("I even work over here");
+        });
+
       });
     </script>
   </head>
@@ -31,6 +55,13 @@
     <h1>Popper</h1>
 
     <p>Here's a little <span class='js-popper'>demoooooooo</span> of Popper</p>
+
+    <div class="absolutely">
+      <h2>Absolutely positioned box</h2>
+      <p>
+        Sometimes these can be a real <span>pain</span>
+      </p>
+    </div>
 
   </body>
 </html>
