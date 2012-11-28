@@ -55,7 +55,8 @@ if (!com.jivatechnology) { com.jivatechnology = {}; }
       var popper;
 
       var createPopper = function(){
-        if(!(popper instanceof HTMLElement)){
+        //  For IE7 compatibility we are using popper && 1 == popper.nodeType instead of popper instanceof HTMLElement
+        if(!(popper && 1 == popper.nodeType)){
           var baseClass      = that.baseClass();
           var classes        = baseClass + " " + baseClass +"-"+that.placement();
           var arrowClass     = baseClass + "-arrow";
