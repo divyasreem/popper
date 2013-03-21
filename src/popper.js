@@ -170,6 +170,8 @@ if (!com.jivatechnology) { com.jivatechnology = {}; }
           case "click":
             $target().click( that.open );
             break;
+          case "none":
+            break;
           default:
             throw "unrecognised type " + type;
         }
